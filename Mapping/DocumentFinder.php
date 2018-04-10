@@ -11,6 +11,8 @@
 
 namespace ONGR\ElasticsearchBundle\Mapping;
 
+use App\Kernel;
+
 /**
  * Finds documents in bundles.
  */
@@ -104,6 +106,8 @@ class DocumentFinder
      */
     public function getBundleClass($name)
     {
+        return Kernel::class;
+
         if (array_key_exists($name, $this->bundles)) {
             return $this->bundles[$name];
         }
@@ -133,7 +137,7 @@ class DocumentFinder
             $documentsDirectory = $this->documentDir;
         }
 
-        $bundleReflection = new \ReflectionClass($this->getBundleClass($bundle));
+        $bundleReflection = new \ReflectionClass(Kernel::class);
 
         $documentsDirectory = DIRECTORY_SEPARATOR . str_replace('\\', '/', $documentsDirectory) . DIRECTORY_SEPARATOR;
         $directory = dirname($bundleReflection->getFileName()) . $documentsDirectory;

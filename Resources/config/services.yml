@@ -2,6 +2,9 @@ parameters:
     es.logging.path: "%kernel.logs_dir%/elasticsearch_%kernel.environment%.log"
 
 services:
+    _defaults:
+        public: true
+
     ONGR\ElasticsearchBundle\Command\:
         resource: '../../Command'
         tags:

@@ -50,6 +50,7 @@ class MappingPass implements CompilerPassInterface
                     'createManager',
                 ]
             );
+            $managerDefinition->setPublic(true);
 
             $container->setDefinition(sprintf('es.manager.%s', $managerName), $managerDefinition);
 
@@ -77,6 +78,7 @@ class MappingPass implements CompilerPassInterface
                         'getRepository',
                     ]
                 );
+                $repositoryDefinition->setPublic(true);
 
                 $repositoryId = sprintf('es.manager.%s.%s', $managerName, $repositoryType);
                 $container->setDefinition($repositoryId, $repositoryDefinition);
