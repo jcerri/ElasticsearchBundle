@@ -16,7 +16,7 @@ use ONGR\ElasticsearchBundle\Annotation as ES;
 /**
  * Subcategory object for testing.
  *
- * @ES\Object
+ * @ES\InnerObject
  */
 class SubcategoryObject extends CategoryObject
 {
